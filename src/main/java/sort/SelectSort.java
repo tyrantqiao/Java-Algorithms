@@ -26,12 +26,12 @@ public class SelectSort {
 
 //	public static void main(String[] args){
 //		List<Integer> origin_list= new ArrayList<>();
-//		origin_list.addAll(Java8.iterate(10,i->i-1)
+//		origin_list.addAll(algorithms.iterate(10,i->i-1)
 //									.limit(10)
 //									.collect(Collectors.toList()));
 ////		System.out.println(origin_list);
 //		List<Integer> result=getListBySelect((a)->{
-//			Java8.iterate(0,i->i+1)
+//			algorithms.iterate(0,i->i+1)
 //					.limit(10)
 //					.reduce((Integer b,Integer c)->b<c?b:c)
 ////					.min((b,c)->b<c?b:c)
