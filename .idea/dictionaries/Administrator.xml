@@ -2,6 +2,7 @@
   <dictionary name="Administrator">
     <words>
       <w>exch</w>
+      <w>nums</w>
     </words>
   </dictionary>
 </component>
