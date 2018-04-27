@@ -2,7 +2,7 @@ package tool;
 
 import edu.princeton.cs.algs4.StdDraw;
 
-public class Draw {
+public class DrawTool {
     public static void drawArray(double[] t){
         final int N=t.length;
         for(int i=0;i<N;i++){

@@ -1,7 +1,5 @@
 package leetcode;
 
-import data.Tree;
-
 import java.util.*;
 
 /**
