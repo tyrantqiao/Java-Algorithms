@@ -1,3 +1,4 @@
+import leetcode.PerfectSquare;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
@@ -15,7 +16,7 @@ import static leetcode.ThreeSum.threeSum;
  * blog https://tyrantqiao.github.io/Blog
  * @see <a href="https://github.com/tyrantqiao">qiao's github</a>
  */
-public class TestLeetcode {
+public class LeetcodeTest {
 	@Test
 	public void test() {
 //		int[] testArr = new Random().ints(15, -5, 5).toArray();
