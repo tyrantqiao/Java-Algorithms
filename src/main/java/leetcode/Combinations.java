@@ -7,6 +7,9 @@ import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 
+/**
+ * @author tyrantqiao
+ */
 public class Combinations {
 	public List<List<Integer>> combine(int n, int k) {
 		if (k == n || k == 0) {
@@ -22,10 +25,4 @@ public class Combinations {
 		return result;
 	}
 
-	@Test
-	public void test() {
-		int n = 5, k = 2;
-		List<List<Integer>> result=combine(n,k);
-		System.out.println(result);
-	}
 }

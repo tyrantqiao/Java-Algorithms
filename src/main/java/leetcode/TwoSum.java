@@ -3,8 +3,8 @@ package leetcode;
 import java.util.HashMap;
 
 /**
- * Created By TyrantQiao on 2018/4/24
- *
+ * @author TyrantQiao
+ * 2018/4/24
  * @version 0.0.1
  * Description: two number sum
  * blog https://tyrantqiao.github.io/Blog
@@ -12,7 +12,7 @@ import java.util.HashMap;
  */
 public class TwoSum {
 	public int[] twoSum(int[] nums, int target) {
-		HashMap<Integer, Integer> map = new HashMap<>();
+		HashMap<Integer, Integer> map = new HashMap<>(16);
 		for (int i = 0; i < nums.length; i++) {
 			int supplement = target - nums[i];
 			if (map.containsKey(supplement) && map.get(supplement) != i) {

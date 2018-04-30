@@ -5,11 +5,14 @@ import org.junit.jupiter.api.Test;
 import java.util.HashMap;
 import java.util.Map;
 
-//TODO another method need self-finishing
+/**
+ * @author tyrantqiao
+ */
 public class TrappingRain {
 	public int trap(int[] height) {
-		if (height == null || height.length == 0)
+		if (height == null || height.length == 0) {
 			return 0;
+		}
 
 		int len = height.length;
 		int left  = 0;

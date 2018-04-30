@@ -2,9 +2,14 @@ package leetcode;
 
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.List;
+
 /**
- * Created By TyrantQiao on 2018/4/24
+ * 2018/4/24
  *
+ * @author tyrantqiao
  * @version 0.0.1
  * Description: Kth Smallest Element in a Sorted Matrix
  * blog https://tyrantqiao.github.io/Blog
@@ -26,10 +31,11 @@ public class KthSmallestElement {
 			//when low equal to high, mid=low, then no change.
 			int mid = lo + (hi - lo) / 2;
 			int count = getLessEqual(matrix, mid);
-			if (count < k)
+			if (count < k) {
 				lo = mid + 1;
-			else
+			} else {
 				hi = mid - 1;
+			}
 		}
 		return lo;
 	}
@@ -45,9 +51,9 @@ public class KthSmallestElement {
 		int res = 0;
 		int n = matrix.length;
 		for (int i = n - 1, j = 0; i >= 0 && j < n; ) {
-			if (matrix[i][j] > val)
+			if (matrix[i][j] > val) {
 				i--;
-			else {
+			} else {
 				res += i + 1;
 				j++;
 			}
@@ -55,18 +61,15 @@ public class KthSmallestElement {
 		return res;
 	}
 
-//	public int kthSmallest(int[][] matrix, int k) {
-//		List<Integer> list = new ArrayList<>();
-//		for (int[] row : matrix)
-//			for (int num : row)
-//				list.add(num);
-//		list.sort(Comparator.naturalOrder());
-//		return list.get(k - 1);
-//	}
-
-	@Test
-	public void test() {
-		int[][] test = {{1, 2}, {1, 5}};
-		System.out.println(kthSmallest(test, 4));
+	public int kthSmallestFromDiscuss(int[][] matrix, int k) {
+		List<Integer> list = new ArrayList<>();
+		for (int[] row : matrix) {
+			for (int num : row) {
+				list.add(num);
+			}
+		}
+		list.sort(Comparator.naturalOrder());
+		return list.get(k - 1);
 	}
+
 }

@@ -1,5 +1,8 @@
 package leetcode;
 
+/**
+ * @author tyrantqiao
+ */
 public class TreeNode {
 	int val;
 	TreeNode left;

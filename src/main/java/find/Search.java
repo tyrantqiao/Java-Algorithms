@@ -5,8 +5,8 @@ import org.jetbrains.annotations.NotNull;
 import java.util.Arrays;
 
 /**
- * Created By TyrantQiao on 2018/4/26
- *
+ * @author tyrantqiao
+ * date: 2018/4/26
  * @version 0.0.1
  * Description: Search
  * blog https://tyrantqiao.github.io/Blog
@@ -29,9 +29,13 @@ public class Search {
 		while (lo <= hi) {
 			int mid = (lo + hi) >>> 1;
 			int midVal = array[mid];
-			if (midVal == target) return mid;
-			else if (midVal > target) hi = mid - 1;
-			else lo = mid + 1;
+			if (midVal == target) {
+				return mid;
+			} else if (midVal > target) {
+				hi = mid - 1;
+			} else {
+				lo = mid + 1;
+			}
 		}
 		return -1;
 	}
@@ -46,11 +50,11 @@ public class Search {
 	 * @throws ArrayIndexOutOfBoundsException
 	 */
 	static void rangeCheck(int arrayLength, int fromIndex, int toIndex) {
-		if (fromIndex > toIndex)
+		if (fromIndex > toIndex) {
 			throw new IllegalArgumentException("out of bound cause by fromIndex:" + fromIndex + " > toIndex:" + toIndex);
-		else if (toIndex > arrayLength - 1)
+		} else if (toIndex > arrayLength - 1) {
 			throw new ArrayIndexOutOfBoundsException(toIndex);
-		else if (fromIndex < 0) {
+		} else if (fromIndex < 0) {
 			throw new ArrayIndexOutOfBoundsException(fromIndex);
 		}
 	}

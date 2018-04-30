@@ -1,5 +1,8 @@
 package leetcode;
 
+/**
+ * @author tyrantqiao
+ */
 public class ListNode {
 	int val;
     ListNode next;

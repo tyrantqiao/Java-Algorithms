@@ -2,7 +2,10 @@ package leetcode;
 
 import org.junit.jupiter.api.Test;
 
-public class MaxXORNumbers {
+/**
+ * @author tyrantqiao
+ */
+public class MaxXorNumbers {
 	/**
 	 * ^异或  ~非 
 	 * @param nums
@@ -14,8 +17,4 @@ public class MaxXORNumbers {
 		return max^min;
 	}
 
-	@Test
-	public void test(){
-		int[] test={1,2,5,2,5,6,7,8};
-	}
 }

@@ -2,7 +2,9 @@ package leetcode;
 
 import java.util.HashSet;
 import java.util.Set;
-
+/**
+ * @author tyrantqiao
+ */
 public class ValidSquare {
     public static boolean validSquare(int[] p1, int[] p2, int[] p3, int[] p4) {
         Set distanceSet=new HashSet();

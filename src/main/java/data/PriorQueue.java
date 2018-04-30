@@ -7,8 +7,8 @@ import java.util.Iterator;
 import java.util.NoSuchElementException;
 
 /**
- * Created By TyrantQiao on 2018/4/27
- *
+ * @author TyrantQiao
+ * date: 2018/4/27
  * @version 0.0.1
  * Description: 优先队列
  * blog https://tyrantqiao.github.io/Blog
@@ -17,7 +17,7 @@ import java.util.NoSuchElementException;
  * Iterable 实现数据结构的迭代。 Iterator是它的具体实现类。
  */
 public class PriorQueue<Key extends Comparable<Key>> implements Iterable<Key> {
-	private int N = 0;
+	private int n = 0;
 	private Key[] pq;
 
 	public PriorQueue(int size) {
@@ -25,7 +25,7 @@ public class PriorQueue<Key extends Comparable<Key>> implements Iterable<Key> {
 	}
 
 	public boolean isEmpty() {
-		return N == 0;
+		return n == 0;
 	}
 
 	/**
@@ -34,15 +34,15 @@ public class PriorQueue<Key extends Comparable<Key>> implements Iterable<Key> {
 	 * @param key
 	 */
 	public void insert(Key key) {
-		pq[++N] = key;
-		swim(N);
+		pq[++n] = key;
+		swim(n);
 	}
 
 	@SafeVarargs
 	public final void insert(Key... keys) {
 		for (Key key : keys) {
-			pq[++N] = key;
-			swim(N);
+			pq[++n] = key;
+			swim(n);
 		}
 	}
 
@@ -53,8 +53,8 @@ public class PriorQueue<Key extends Comparable<Key>> implements Iterable<Key> {
 	 */
 	public Key deleteMax() {
 		Key max = pq[1];
-		exch(1, N--);
-		pq[N + 1] = null;
+		exch(1, n--);
+		pq[n + 1] = null;
 		sink(1);
 		return max;
 	}
@@ -65,10 +65,11 @@ public class PriorQueue<Key extends Comparable<Key>> implements Iterable<Key> {
 	 * @param k
 	 */
 	private void sink(int k) {
-		while (2 * k <= N) {
-			int j = 2 * k;
-			if (j < N && less(j, j + 1)) j++;
-			if (!less(j, k)) break;
+		int sonNode = 2;
+		while (sonNode * k <= n) {
+			int j = sonNode * k;
+			if (j < n && less(j, j + 1)) { j++;}
+			if (!less(j, k)) { break;}
 			exch(j, k);
 			k = j;
 		}
@@ -80,7 +81,8 @@ public class PriorQueue<Key extends Comparable<Key>> implements Iterable<Key> {
 	 * @param k
 	 */
 	private void swim(int k) {
-		while (k > 1 && less(k / 2, k)) {
+		int parentNode = 2;
+		while (k > 1 && less(k / parentNode, k)) {
 			exch(k / 2, k);
 			k = k / 2;
 		}
@@ -97,7 +99,7 @@ public class PriorQueue<Key extends Comparable<Key>> implements Iterable<Key> {
 	}
 
 	public int size() {
-		return N;
+		return n;
 	}
 
 	/**
@@ -125,7 +127,9 @@ public class PriorQueue<Key extends Comparable<Key>> implements Iterable<Key> {
 
 		@Override
 		public Key next() {
-			if (!hasNext()) throw new NoSuchElementException();
+			if (!hasNext()) {
+				throw new NoSuchElementException();
+			}
 			return copy.deleteMax();
 		}
 	}

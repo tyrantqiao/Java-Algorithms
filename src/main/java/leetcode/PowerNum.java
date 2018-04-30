@@ -10,6 +10,9 @@ import static java.util.stream.Collectors.toList;
 import static java.util.stream.Collectors.toMap;
 import static java.util.stream.Collectors.toSet;
 
+/**
+ * @author tyrantqiao
+ */
 public class PowerNum {
 
     @Test
