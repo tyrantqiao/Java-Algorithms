@@ -37,7 +37,7 @@ public class SortList {
 		if (nodeB == null) {
 			return nodeA;
 		}
-		if (nodeA.val > nodeB.val) {
+		if (nodeA.val.compareTo(nodeB.val) > 0) {
 			nodeB.next = mergeListNode(nodeA, nodeB.next);
 			return nodeB;
 		} else {
@@ -54,5 +54,10 @@ public class SortList {
 			head = head.next;
 		}
 		return size;
+	}
+
+	class ListNode<V extends Comparable<V>> {
+		ListNode next;
+		V val;
 	}
 }

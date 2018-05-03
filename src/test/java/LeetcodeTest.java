@@ -1,12 +1,6 @@
-import leetcode.PerfectSquare;
 import org.junit.jupiter.api.Test;
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.Random;
-
-import static leetcode.PerfectSquare.numSquares;
-import static leetcode.ThreeSum.threeSum;
+import static leetcode.WordSearch.findWords;
 
 /**
  * Created By TyrantQiao on 2018/4/27
@@ -19,10 +13,9 @@ import static leetcode.ThreeSum.threeSum;
 public class LeetcodeTest {
 	@Test
 	public void test() {
-//		int[] testArr = new Random().ints(15, -5, 5).toArray();
-//		Arrays.stream(testArr).forEach(System.out::println);
+		char[][] test = {{'o', 'a', 'a', 'n'}, {'e', 't', 'a', 'e'}, {'i', 'h', 'k', 'r'}, {'i', 'f', 'l', 'v'}};
+		String[] words = {"oath", "pea", "eat", "rain"};
 
-		int n=12;
-		System.out.println(numSquares(n));
+		System.out.println(findWords(test, words));
 	}
 }
