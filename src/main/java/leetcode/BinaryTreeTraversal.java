@@ -21,6 +21,7 @@ public class BinaryTreeTraversal {
 	/**
 	 * use stack to save the last element, and then pop, we save left element first, the latest left element will
 	 * pop first, then is the mid element, we would put the right element by {@code node=node.right}
+	 *
 	 * @param node
 	 * @param res
 	 */
@@ -31,15 +32,21 @@ public class BinaryTreeTraversal {
 				treeNodeStack.push(node);
 				node = node.left;
 			}
-			if(!treeNodeStack.isEmpty()){
-				node=treeNodeStack.pop();
+			if (!treeNodeStack.isEmpty()) {
+				node = treeNodeStack.pop();
 				res.add(node.val);
-				node=node.right;
+				node = node.right;
 			}
 		}
-		while (!treeNodeStack.isEmpty()||node!=null);
+		while (!treeNodeStack.isEmpty() || node != null);
 	}
 
+	/**
+	 * 递归，直接递归左节点，添加节点，然后递归右节点，添加节点。
+	 *
+	 * @param node
+	 * @param res
+	 */
 	private void getNodeByInorderRecursive(TreeNode node, List<Integer> res) {
 		if (node == null) {
 			return;

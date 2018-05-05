@@ -1,6 +1,7 @@
 import org.junit.jupiter.api.Test;
 
-import static leetcode.WordSearch.findWords;
+import static leetcode.FirstMissingPositive.firstMissingPositive;
+
 
 /**
  * Created By TyrantQiao on 2018/4/27
@@ -13,9 +14,9 @@ import static leetcode.WordSearch.findWords;
 public class LeetcodeTest {
 	@Test
 	public void test() {
-		char[][] test = {{'o', 'a', 'a', 'n'}, {'e', 't', 'a', 'e'}, {'i', 'h', 'k', 'r'}, {'i', 'f', 'l', 'v'}};
-		String[] words = {"oath", "pea", "eat", "rain"};
+		int[] test = {7, 6, 2, 1, 5};
 
-		System.out.println(findWords(test, words));
+		int result = firstMissingPositive(test);
+		System.out.println(result);
 	}
 }
