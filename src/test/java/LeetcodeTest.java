@@ -1,6 +1,6 @@
 import org.junit.jupiter.api.Test;
 
-import static leetcode.FirstMissingPositive.firstMissingPositive;
+import static leetcode.LongestCommonPrefix.longestCommonPrefix;
 
 
 /**
@@ -14,9 +14,8 @@ import static leetcode.FirstMissingPositive.firstMissingPositive;
 public class LeetcodeTest {
 	@Test
 	public void test() {
-		int[] test = {7, 6, 2, 1, 5};
 
-		int result = firstMissingPositive(test);
-		System.out.println(result);
+		String[] strings = {"abcdef", "bcdef", "cde", "de", "e"};
+		System.out.println(longestCommonPrefix(strings));
 	}
 }
