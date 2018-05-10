@@ -1,6 +1,7 @@
+import leetcode.ListNode;
 import org.junit.jupiter.api.Test;
 
-import static leetcode.LongestCommonPrefix.longestCommonPrefix;
+import static leetcode.RevertListNode.reverseListByRecursive;
 
 
 /**
@@ -14,8 +15,14 @@ import static leetcode.LongestCommonPrefix.longestCommonPrefix;
 public class LeetcodeTest {
 	@Test
 	public void test() {
-
-		String[] strings = {"abcdef", "bcdef", "cde", "de", "e"};
-		System.out.println(longestCommonPrefix(strings));
+		ListNode test = new ListNode(1);
+		ListNode test2 = new ListNode(2);
+		ListNode test3 = new ListNode(3);
+		ListNode test4 = new ListNode(4);
+		test.next = test2;
+		test2.next = test3;
+		test3.next = test4;
+		ListNode res=reverseListByRecursive(test);
+		System.out.println(res.val);
 	}
 }
