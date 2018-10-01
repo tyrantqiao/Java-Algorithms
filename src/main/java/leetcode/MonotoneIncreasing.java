@@ -51,6 +51,7 @@ public class MonotoneIncreasing {
 
 	/**
 	 * 遇到悬崖时勒马，并进行循环降一打击，直到保证单调性质为主，最后将后面都设为9。
+	 *
 	 * @param N
 	 * @return
 	 */
@@ -69,9 +70,36 @@ public class MonotoneIncreasing {
 		return Integer.parseInt(String.valueOf(chars));
 	}
 
+	/**
+	 * 从排名榜上看的第一名
+	 * 不用string等
+	 * <p>
+	 * 核心是左右两位数进行比较，再用result进行存储比较结果，当左>右时，不满足递增，则应变为9+结果*10
+	 *
+	 * @param N
+	 * @return
+	 */
+	public int monotoneIncreasingDigitsFastest(int N) {
+		if (N < 10) {
+			return N;
+		}
+		int right = N % 10;
+		int left = (N / 10) % 10;
+		if (left <= right) {
+			int result = monotoneIncreasingDigitsFastest(N / 10);
+			if (result % 10 > left) {
+				return 9 + result * 10;
+			} else {
+				return right + result * 10;
+			}
+		} else {
+			return 9 + monotoneIncreasingDigitsFastest(N / 10 - 1) * 10;
+		}
+	}
+
 	public static void main(String[] args) {
-		int testNum = 1234;
+		int testNum = 1000000;
 		MonotoneIncreasing monotoneIncreasing = new MonotoneIncreasing();
-		System.out.print(monotoneIncreasing.monotoneIncreasingDigitsByCliff(testNum));
+		System.out.print(monotoneIncreasing.monotoneIncreasingDigitsFastest(testNum));
 	}
 }
