@@ -14,9 +14,9 @@ public class StringTest {
 	@Test
 	public void test() throws IOException {
 		String a = "ahha";
-		Integer i = 1;
 		FileOutputStream fileOutputStream = new FileOutputStream(".");
 		ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream);
 		objectOutputStream.write(Integer.parseInt(a));
+		objectOutputStream.close();
 	}
 }

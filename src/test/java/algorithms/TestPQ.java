@@ -1,10 +1,8 @@
 package algorithms;
 
 import data.PriorQueue;
-import edu.princeton.cs.algs4.In;
 import org.junit.jupiter.api.Test;
 
-import java.util.Iterator;
 
 /**
  * Created By TyrantQiao on 2018/4/27

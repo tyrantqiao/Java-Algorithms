@@ -13,7 +13,7 @@ import java.util.Stack;
  */
 public class BinaryTreeTraversal {
 	public List<Integer> inorderTraversal(TreeNode root) {
-		List<Integer> result = new ArrayList<>();
+		List<Integer> result = new ArrayList<Integer>();
 		getNodeByInorderIterative(root, result);
 		return result;
 	}
