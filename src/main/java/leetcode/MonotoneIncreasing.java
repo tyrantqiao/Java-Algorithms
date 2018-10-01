@@ -64,7 +64,7 @@ public class MonotoneIncreasing {
 			chars[--i] -= 1;
 		}
 		for (int j = i + 1; j < chars.length; j++) {
-			chars[j] = 9;
+			chars[j] = '9';
 		}
 		return Integer.parseInt(String.valueOf(chars));
 	}
