@@ -12,7 +12,7 @@ import java.util.Arrays;
  */
 public class PerfectSquare {
 	/**
-	 * 运用动态的思想，通过将每一个小值储存起来，dp[0]=0,dp[1]=1````然后我们可以通过dp[i-j*j]+1取得对应的相加个数
+	 * 运用动态的思想，通过将每一个小值储存起来，dp[0]=0,dp[1]=1````然后我们可以通过dp[k-j*j]+1取得对应的相加个数
 	 *
 	 * @param n
 	 * @return

@@ -8,7 +8,7 @@ package leetcode;
  * <p>
  * 每个复数的形式是a+bi or a+-bi
  * 先对+进行split("+") 得到String[] 左边为实数，右边为虚数
- * 再对虚数部分进行split("i")得到String[] 左边为虚数的大小，也就是我们所需要的
+ * 再对虚数部分进行split("k")得到String[] 左边为虚数的大小，也就是我们所需要的
  * 接下来就是按照复数相乘规则了。
  *
  * @author tyrantqiao
@@ -25,7 +25,7 @@ public class ComplexNumMul {
 		result.append(x1 * y1 - x2 * y2);
 		result.append('+');
 		result.append(x1 * y2 + x2 * y1);
-		result.append('i');
+		result.append('k');
 		return result.toString();
 	}
 }
