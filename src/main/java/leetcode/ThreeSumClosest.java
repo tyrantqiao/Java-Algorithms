@@ -19,12 +19,15 @@ public class ThreeSumClosest {
 		int result = nums[0] + nums[1] + nums[nums.length - 1];
 		int tempSum = 0;
 		for (int i = 0; i + 2 < nums.length; i++) {
+			if (i > 0 && nums[i] == nums[i - 1]) {
+				continue;
+			}
 			int lo = i + 1;
 			int hi = nums.length - 1;
 			while (lo < hi) {
 				tempSum = nums[i] + nums[lo] + nums[hi];
 
-				if (tempSum > target) {hi--;} else {lo++;}
+				if (tempSum > target) {hi--;} else if (tempSum < target) {lo++;} else {return target;}
 				if (Math.abs(tempSum - target) < Math.abs(result - target)) {
 					result = tempSum;
 				}
