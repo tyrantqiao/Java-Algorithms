@@ -1,0 +1,30 @@
+{
+    "run": {
+        "default": "",
+        "items": [
+            {
+                "name": "algorithms",
+                "projectName": "algorithms",
+                "workingDirectory": "e:\\Java Project\\algorithms",
+                "args": [],
+                "vmargs": [],
+                "env": {},
+                "preLaunchTask": ""
+            }
+        ]
+    },
+    "debug": {
+        "default": "",
+        "items": [
+            {
+                "name": "algorithms",
+                "projectName": "algorithms",
+                "workingDirectory": "e:\\Java Project\\algorithms",
+                "args": [],
+                "vmargs": [],
+                "env": {},
+                "preLaunchTask": ""
+            }
+        ]
+    }
+}
