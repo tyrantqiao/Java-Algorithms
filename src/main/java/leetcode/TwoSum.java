@@ -7,7 +7,7 @@ import java.util.HashMap;
  * 2018/4/24
  * @version 0.0.1
  * Description: two number sum
- * blog https://tyrantqiao.github.io/Blog
+ * blog https://tyrantqiao.com
  * @see <a href="https://github.com/tyrantqiao">qiao's github</a>
  */
 public class TwoSum {
