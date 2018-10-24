@@ -12,4 +12,17 @@ public class ListNode {
     public ListNode(int x) {
         val = x;
     }
+
+    @Override
+    public String toString() {
+        StringBuffer stringBuffer = new StringBuffer();
+        ListNode tempNode = this;
+        while (tempNode != null) {
+            stringBuffer.append(tempNode.val);
+            stringBuffer.append("->");
+            tempNode = tempNode.next;
+        }
+        stringBuffer.append("null");
+        return stringBuffer.toString();
+    }
 }
