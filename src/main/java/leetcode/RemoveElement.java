@@ -25,7 +25,7 @@ public class RemoveElement {
         int notEqualIndex = 0;
         for (int i = 0; i < nums.length; i++) {
             if (nums[i] != val) {
-                nums[notEqualIndex] = val;
+                nums[notEqualIndex] = nums[i];
                 notEqualIndex++;
             }
         }
