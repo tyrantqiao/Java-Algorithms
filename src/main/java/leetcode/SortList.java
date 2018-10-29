@@ -4,60 +4,63 @@ package leetcode;
  * @author tyrantqiao
  */
 public class SortList {
-	public ListNode sortList(ListNode head) {
-		if (head == null) {
-			return head;
-		}
-		if (head.next == null) {
-			return head;
-		}
-		//int size=getListNodeSize(head);
-		ListNode index, prev, half;
-		index = head;
-		prev = head;
-		half = head;
+    /**
+     * 排序链表：要求O（nlogn）
+     * 先用指针做出个从一半开始的指针half，再去掉head的后半部分
+     * 将二者排序后融合，实现O（nlogn）的需求
+     *
+     * @param head
+     * @return
+     */
+    public ListNode sortList(ListNode head) {
+        if (head == null) {
+            return head;
+        }
+        if (head.next == null) {
+            return head;
+        }
+        //int size=getListNodeSize(head);
+        ListNode allIndex, prev, half;
+        allIndex = head;
+        prev = head;
+        half = head;
 
-		while (index != null && index.next != null) {
-			prev = half;
-			half = half.next;
-			index = index.next.next;
-		}
+        while (allIndex != null && allIndex.next != null) {
+            prev = half;
+            half = half.next;
+            allIndex = allIndex.next.next;
+        }
+        //使得head只剩下前半部分了
+        prev.next = null;
 
-		prev.next = null;
+        ListNode left = sortList(head);
+        ListNode right = sortList(half);
+        return mergeListNode(left, right);
+    }
 
-		ListNode h1 = sortList(head);
-		ListNode h2 = sortList(half);
-		return mergeListNode(h1, h2);
-	}
-
-	public ListNode mergeListNode(ListNode nodeA, ListNode nodeB) {
-		if (nodeA == null) {
-			return nodeB;
-		}
-		if (nodeB == null) {
-			return nodeA;
-		}
-		if (nodeA.val.compareTo(nodeB.val) > 0) {
-			nodeB.next = mergeListNode(nodeA, nodeB.next);
-			return nodeB;
-		} else {
-			nodeA.next = mergeListNode(nodeA.next, nodeB);
-			return nodeA;
-		}
-	}
+    public ListNode mergeListNode(ListNode nodeA, ListNode nodeB) {
+        if (nodeA == null) {
+            return nodeB;
+        }
+        if (nodeB == null) {
+            return nodeA;
+        }
+        if (nodeA.val > nodeB.val) {
+            nodeB.next = mergeListNode(nodeA, nodeB.next);
+            return nodeB;
+        } else {
+            nodeA.next = mergeListNode(nodeA.next, nodeB);
+            return nodeA;
+        }
+    }
 
 
-	public int getListNodeSize(ListNode head) {
-		int size = 0;
-		while (head.next != null) {
-			size++;
-			head = head.next;
-		}
-		return size;
-	}
-
-	class ListNode<V extends Comparable<V>> {
-		ListNode next;
-		V val;
-	}
+    public int getListNodeSize(ListNode head) {
+        int size = 0;
+        while (head.next != null) {
+            size++;
+            head = head.next;
+        }
+        return size;
+    }
 }
