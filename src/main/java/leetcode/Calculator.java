@@ -17,7 +17,7 @@ public class Calculator {
      * @param s
      * @return
      */
-    int calculate(String s) {
+    public int calculate(String s) {
         Stack<Integer> stack = new Stack<>();
         int result = 0;
         int sign = 1;
