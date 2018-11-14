@@ -9,13 +9,14 @@ package leetcode;
 public class SearchInsert {
     /**
      * 二分法查找插入位置
-     * @param nums
-     * @param target
-     * @return
+     *
+     * @param nums   数组
+     * @param target 插入值
+     * @return 该插入的位置
      */
-    public int searchInsert(int[] nums, int target) {
+    private int searchInsert(int[] nums, int target) {
         int high = nums.length - 1, low = 0;
-        int mid = 0;
+        int mid;
         while (low <= high) {
             mid = (low + high) / 2;
             if (target == nums[mid]) {
