@@ -7,6 +7,12 @@ package leetcode;
  * contact: tyrantqiao@icloud.com
  */
 public class SearchInsert {
+    /**
+     * 二分法查找插入位置
+     * @param nums
+     * @param target
+     * @return
+     */
     public int searchInsert(int[] nums, int target) {
         int high = nums.length - 1, low = 0;
         int mid = 0;
