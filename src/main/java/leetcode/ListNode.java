@@ -13,6 +13,11 @@ public class ListNode {
         val = x;
     }
 
+    /**
+     * 做一个toString()，方便检查答案是否正确，通过迭代形式迭代出全部节点
+     *
+     * @return
+     */
     @Override
     public String toString() {
         StringBuffer stringBuffer = new StringBuffer();

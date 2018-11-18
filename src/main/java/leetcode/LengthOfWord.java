@@ -1,5 +1,7 @@
 package leetcode;
 
+import java.util.LinkedList;
+
 /**
  * @author tyrantqiao
  * date: 2018/11/14
