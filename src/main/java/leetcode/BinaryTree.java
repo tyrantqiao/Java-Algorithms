@@ -14,25 +14,25 @@ import java.util.Stack;
  */
 public class BinaryTree {
     /**
-     * 一层一层地对root的左右节点进行迭代判断
+     * 一层一层地对root的左右节点进行迭代判断，小于左则用右边的
      *
      * @param root
      * @param L
      * @param R
      * @return
      */
-    public TreeNode trimBST(TreeNode root, int L, int R) {
-        if(root==null) {
+    private TreeNode trimBST(TreeNode root, int L, int R) {
+        if (root == null) {
             return root;
         }
-        if(root.val<L) {
-            return trimBST(root.right,L,R);
-        }else if(root.val>R){
-            return trimBST(root.left,L,R);
+        if (root.val < L) {
+            return trimBST(root.right, L, R);
+        } else if (root.val > R) {
+            return trimBST(root.left, L, R);
         }
 
-        root.left=trimBST(root.left,L,R);
-        root.right=trimBST(root.right,L,R);
+        root.left = trimBST(root.left, L, R);
+        root.right = trimBST(root.right, L, R);
         return root;
     }
 
@@ -121,5 +121,13 @@ public class BinaryTree {
         getNodeByInorderRecursive(node.left, res);
         res.add(node.val);
         getNodeByInorderIterative(node.right, res);
+    }
+
+    public static void main(String[] args) {
+        BinaryTree binaryTree = new BinaryTree();
+        TreeNode treeNode = new TreeNode(2);
+        treeNode.left = new TreeNode(1);
+        treeNode.right = new TreeNode(3);
+        System.out.println(binaryTree.trimBST(treeNode, 2, 3));
     }
 }
