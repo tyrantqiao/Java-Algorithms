@@ -26,7 +26,17 @@ public class TreeNode {
     }
 
     /**
-     * from Todd Davies ~stackoverflow
+     * from Todd Davies ~ stackoverflow
+     * 首先调用这个函数，起码有个根或者没根，就会有个|   的符号，然后判断有没有右子树
+     * 如果有，那么它就会在|   |-- 右子树这边
+     * 当右子树走完了，添加中间结点
+     * |    |--
+     * |__  xxxx
+     * 最后就是添加左子树了用空格和|分开即可
+     * │   ┌── 3
+     * └── 2
+     *     └── 1
+     *         └── 0
      *
      * @param prefix
      * @param isTail

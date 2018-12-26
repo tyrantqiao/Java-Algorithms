@@ -128,6 +128,8 @@ public class BinaryTree {
         TreeNode treeNode = new TreeNode(2);
         treeNode.left = new TreeNode(1);
         treeNode.right = new TreeNode(3);
-        System.out.println(binaryTree.trimBST(treeNode, 2, 3));
+        treeNode.left.left=new TreeNode(0);
+        treeNode.right.right=new TreeNode(4);
+        System.out.println(binaryTree.trimBST(treeNode, -10, 3));
     }
 }
