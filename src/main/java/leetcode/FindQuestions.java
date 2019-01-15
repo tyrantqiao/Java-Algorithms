@@ -1,9 +1,39 @@
 package leetcode;
 
+import java.util.PriorityQueue;
+import java.util.Queue;
+
 /**
  * @author tyrantqiao
  */
-public class FindSingle {
+public class FindQuestions {
+    private Queue<Long> small = new PriorityQueue();
+    private Queue<Long> big = new PriorityQueue();
+
+    /**
+     * 添加数字
+     *
+     * @param num
+     */
+    public void addNum(int num) {
+        big.add((long) num);
+        small.add(-big.poll());
+        if (big.size() < small.size()) {
+            big.add(-small.poll());
+        }
+    }
+
+    /**
+     * 查找中间数，获得队列的头部
+     *
+     * @return
+     */
+    public double findMedian() {
+        return big.size() > small.size()
+                ? big.peek()
+                : (big.peek() - small.peek()) / 2.0;
+    }
+
     /**
      * 找出数组中单独存在的数字
      * 因为一堆数字里面仅一个是单数存在的
@@ -49,8 +79,8 @@ public class FindSingle {
     }
 
     public static void main(String[] args) {
-        FindSingle findSingle = new FindSingle();
+        FindQuestions findQuestions = new FindQuestions();
         int[] testNums = {1, 1, 4, 5, 5};
-        System.out.println(findSingle.singleNumber(testNums));
+        System.out.println(findQuestions.singleNumber(testNums));
     }
 }
