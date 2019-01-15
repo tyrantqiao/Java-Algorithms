@@ -25,5 +25,4 @@ public class PowerNum {
 				.mapToObj(PowerNum::isPowerOfTwo);
 		System.out.println("result:" + result.collect(toList()));
 	}
-
 }

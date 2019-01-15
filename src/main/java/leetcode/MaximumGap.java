@@ -8,6 +8,12 @@ import java.util.Arrays;
  * https://leetcode.com/problems/maximum-gap/description/
  */
 public class MaximumGap {
+	/**
+	 * 排序获得最大间隙
+	 *
+	 * @param nums
+	 * @return
+	 */
 	public int maximumGap(int[] nums) {
 		if(nums.length<2){
 			return 0;
