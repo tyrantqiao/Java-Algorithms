@@ -10,6 +10,12 @@ import static java.util.stream.Collectors.toList;
  * @author tyrantqiao
  */
 public class PowerNum {
+	/**
+	 * 若是2的倍数，则为1000，减一时为0111，则二者&操作时为0，而当这个数也是正数时，则为2的幂数
+	 *
+	 * @param n
+	 * @return
+	 */
 	public static boolean isPowerOfTwo(int n) {
 		return ((n & (n - 1)) == 0 && n > 0);
 	}
