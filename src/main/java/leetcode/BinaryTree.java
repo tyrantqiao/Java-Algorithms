@@ -1,9 +1,8 @@
 package leetcode;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Stack;
+import org.antlr.runtime.tree.Tree;
+
+import java.util.*;
 
 /**
  * <a href="https://leetcode.com/problems/binary-tree-zigzag-level-order-traversal/description/"></a>
@@ -123,13 +122,28 @@ public class BinaryTree {
         getNodeByInorderIterative(node.right, res);
     }
 
+    /**
+     * 另外一个做法维护一个map表，对每一个节点进行一个存储当前高度，迭代时+1，通过比较各自的depth返回结果
+     * 而这个做法是递归循环到底部，出来时+1并对左和右进行一个比较。
+     *
+     * @param root
+     * @return
+     */
+    public int maxDepth(TreeNode root) {
+        if (root == null) {
+            return 0;
+        }
+        int leftMaxDepth = maxDepth(root.left);
+        int rightMaxDepth = maxDepth(root.right);
+        return Math.max(leftMaxDepth, rightMaxDepth) + 1;
+    }
+
     public static void main(String[] args) {
         BinaryTree binaryTree = new BinaryTree();
-        TreeNode treeNode = new TreeNode(2);
-        treeNode.left = new TreeNode(1);
+        TreeNode treeNode = new TreeNode(1);
+        treeNode.left = new TreeNode(2);
         treeNode.right = new TreeNode(3);
-        treeNode.left.left=new TreeNode(0);
-        treeNode.right.right=new TreeNode(4);
-        System.out.println(binaryTree.trimBST(treeNode, -10, 3));
+        treeNode.right.left = new TreeNode(4);
+        System.out.println(binaryTree.maxDepth(treeNode));
     }
 }
