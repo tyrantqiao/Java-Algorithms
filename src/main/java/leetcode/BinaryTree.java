@@ -138,6 +138,41 @@ public class BinaryTree {
         return Math.max(leftMaxDepth, rightMaxDepth) + 1;
     }
 
+    /**
+     * 调用递归方法获取结果
+     *
+     * @param nums
+     * @return
+     */
+    public TreeNode sortedArrayToBST(int[] nums) {
+        if (nums.length == 0) {
+            return null;
+        }
+
+        TreeNode tree = tranArrayToBST(nums, 0, nums.length - 1);
+        return tree;
+    }
+
+    /**
+     * 每次以mid为根节点，然后分为左右两半，当到边界时返回null，否则作为左右枝节点
+     *
+     * @param sortedNums
+     * @param left
+     * @param right
+     * @return
+     */
+    private TreeNode tranArrayToBST(int[] sortedNums, int left, int right) {
+        if (left > right) {
+            return null;
+        }
+        int mid = (left + right) / 2;
+        TreeNode bst = new TreeNode(sortedNums[mid]);
+        bst.left = tranArrayToBST(sortedNums, left, mid - 1);
+        bst.right = tranArrayToBST(sortedNums, mid + 1, right);
+        return bst;
+    }
+
+
     public static void main(String[] args) {
         BinaryTree binaryTree = new BinaryTree();
         TreeNode treeNode = new TreeNode(1);

@@ -50,6 +50,11 @@ public class ListNodeQuestions {
         return true;
     }
 
+    /**
+     * 通过linkedList实现将树不同层次存储起来，通过不断的迭代，获得左右子节点时，将该节点吐出
+     * @param root
+     * @return
+     */
     public List<List<Integer>> levelOrderBottom(TreeNode root) {
         Queue<TreeNode> queue = new LinkedList<TreeNode>();
         List<List<Integer>> result = new LinkedList<List<Integer>>();
