@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--namespace 用于隔离sql语句-->
+<mapper namespace="com.tyrantqiao.mapper.UserMapper">
+    <!--   parameter 定义SQL输入映射类型,MyBatis通过OGNL从输入对象中获取参数传入SQL语句  -->
+    <select id="getUserById" resultType="com.tyrantqiao.bean.User">
+        <!--  定义SQL输出映射类型,MyBatis将SQL查询结果的一行记录映射为resultType指定的类型.  -->
+        select * from user where id = ?
+    </select>
+</mapper>
