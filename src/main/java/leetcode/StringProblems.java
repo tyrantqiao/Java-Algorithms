@@ -119,6 +119,32 @@ public class StringProblems {
         return num > (Integer.MAX_VALUE - base) / 10;
     }
 
+    public int numJewelsInStones2(String J, String S) {
+        int result=0;
+        char[] charsCount=new char[127];
+        for(char c:J.toCharArray()){
+            charsCount[c]++;
+        }
+        for(char c:S.toCharArray()){
+            if(charsCount[c]!=0){
+                result++;
+            }
+        }
+        return result;
+    }
+
+    public int numJewelsInStones(String J, String S) {
+        int result=0;
+        for(int i=0;i<S.length();i++){
+            for(int j=0;j<J.length();j++){
+                if(J.charAt(j)==S.charAt(i)){
+                    result++;
+                }
+            }
+        }
+        return result;
+    }
+
     public static void main(String[] args) {
         StringProblems stringProblems = new StringProblems();
         System.out.println(stringProblems.checkInclusion("aba", "cbaa"));
