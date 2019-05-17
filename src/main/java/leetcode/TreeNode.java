@@ -11,7 +11,7 @@ public class TreeNode {
     int val;
     TreeNode left;
     TreeNode right;
-    List<TreeNode> children;
+    private List<TreeNode> children;
 
     TreeNode(int x) {
         val = x;

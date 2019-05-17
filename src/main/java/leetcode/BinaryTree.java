@@ -172,13 +172,39 @@ public class BinaryTree {
         return bst;
     }
 
+    int result = 0;
+
+    /**
+     * 搭配上面的result做一个递归结果的存储，递归就主要以比较值，若左边仍有位置，则开始递归左节点，递归完后
+     * 就转向右节点进行递归，递归完后返回结果。
+     *
+     * @param root
+     * @param L
+     * @param R
+     * @return
+     */
+    public int rangeSumBST(TreeNode root, int L, int R) {
+        if (root != null) {
+            if (root.val >= L && root.val <= R) {
+                result += root.val;
+            }
+            if (root.val > L) {
+                rangeSumBST(root.left, L, R);
+            }
+            if (root.val < R) {
+                rangeSumBST(root.right, L, R);
+            }
+        }
+        return result;
+    }
 
     public static void main(String[] args) {
         BinaryTree binaryTree = new BinaryTree();
-        TreeNode treeNode = new TreeNode(1);
+        TreeNode treeNode = new TreeNode(3);
         treeNode.left = new TreeNode(2);
-        treeNode.right = new TreeNode(3);
+        treeNode.right = new TreeNode(5);
         treeNode.right.left = new TreeNode(4);
-        System.out.println(binaryTree.maxDepth(treeNode));
+        System.out.println(treeNode);
+        System.out.println(binaryTree.rangeSumBST(treeNode, 2, 5));
     }
 }
