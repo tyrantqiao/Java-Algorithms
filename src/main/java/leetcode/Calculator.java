@@ -52,15 +52,15 @@ public class Calculator {
      * 主动判断大小，不用包，不转数组
      * 核心点在于设置一个全局变量，用于记录计算进度'k'，遇到'('则通过递归的形式跳过这一个点。
      *
-     * @param S
+     * @param str
      * @return
      */
-    public int calculateFastest(String S) {
+    public int calculateFastest(String str) {
         int result = 0;
         int sign = 1;
         int entireNum = 0;
-        while (k < S.length()) {
-            char c = S.charAt(k);
+        while (k < str.length()) {
+            char c = str.charAt(k);
             k++;
             if ('0' <= c && c <= '9') {
                 entireNum = entireNum * 10 + c - '0';
@@ -73,7 +73,7 @@ public class Calculator {
                 sign = -1;
                 entireNum = 0;
             } else if (c == '(') {
-                entireNum = calculateFastest(S);
+                entireNum = calculateFastest(str);
             } else if (c == ')') {
                 result += sign * entireNum;
                 return result;

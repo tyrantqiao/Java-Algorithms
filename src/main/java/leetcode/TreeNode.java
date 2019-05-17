@@ -27,11 +27,12 @@ public class TreeNode {
 
     /**
      * from Todd Davies ~ stackoverflow
-     * 首先调用这个函数，起码有个根或者没根，就会有个|   的符号，然后判断有没有右子树
-     * 如果有，那么它就会在|   |-- 右子树这边
+     * 在递归上我们是通过调用TreeNode的两个项left和right来进行的，left.toString()也就是对left这个TreeNode进行递归调用了。
+     * 首先调用这个函数，起码有个根或者没根，就会有个│   的符号，然后判断有没有右子树
+     * 如果有，那么它就会在│   ┌── 右子树这边
      * 当右子树走完了，添加中间结点
-     * |    |--
-     * |__  xxxx
+     * │    ┌──xxx
+     * │__  xxxx
      * 最后就是添加左子树了用空格和|分开即可
      * │   ┌── 3
      * └── 2
@@ -47,6 +48,7 @@ public class TreeNode {
         if (right != null) {
             right.toString(new StringBuilder().append(prefix).append(isTail ? "│   " : "    "), false, sb);
         }
+//        right的节点都是用┌──，而left的是└──，所以这里isTail除了做空格与竖的Boolean外，也是表达值形式的Boolean
         sb.append(prefix).append(isTail ? "└── " : "┌── ").append(val).append("\n");
         if (left != null) {
             left.toString(new StringBuilder().append(prefix).append(isTail ? "    " : "│   "), true, sb);

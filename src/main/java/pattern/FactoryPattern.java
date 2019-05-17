@@ -10,28 +10,30 @@ package pattern;
  * @see <a href="https://github.com/tyrantqiao">qiao's github</a>
  */
 public class FactoryPattern {
-	/**
-	 * 基础接口
-	 */
-	interface Shape {
-		/**
-		 * 接口内的方法paint
-		 */
-		void paint();
-	}
+    /**
+     * 基础接口
+     */
+    interface Shape {
+        /**
+         * 接口内的方法paint
+         */
+        void paint();
+    }
 
-	class Circle implements Shape {
+    class Circle implements Shape {
 
-		@Override
-		public void paint() {
-			System.out.println("circle shape");
-		}
-	}
+        @Override
+        public void paint() {
+            System.out.println("circle shape");
+        }
+    }
 
-	public Shape getShape(String shapeType) {
-		if (shapeType == "circle") {
-			return new Circle();
-		}
-		return null;
-	}
+    final String CIRCLE = "circle";
+
+    public Shape getShape(String shapeType) {
+        if (CIRCLE.equals(shapeType)) {
+            return new Circle();
+        }
+        return null;
+    }
 }

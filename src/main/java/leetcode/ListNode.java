@@ -13,6 +13,25 @@ public class ListNode {
         val = x;
     }
 
+    @Override
+    public int hashCode() {
+        int result = Integer.hashCode(val);
+        result += next.hashCode();
+        return result;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == this) {
+            return true;
+        }
+        if (!(o instanceof ListNode)) {
+            return false;
+        }
+        ListNode randomListNode = (ListNode) o;
+        return randomListNode.val == val && randomListNode.next == next;
+    }
+
     /**
      * 做一个toString()，方便检查答案是否正确，通过迭代形式迭代出全部节点
      *

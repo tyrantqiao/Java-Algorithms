@@ -119,13 +119,13 @@ public class StringProblems {
         return num > (Integer.MAX_VALUE - base) / 10;
     }
 
-    public int numJewelsInStones2(String J, String S) {
+    public int numJewelsInStones2(String jewels, String stones) {
         int result=0;
         char[] charsCount=new char[127];
-        for(char c:J.toCharArray()){
+        for(char c:jewels.toCharArray()){
             charsCount[c]++;
         }
-        for(char c:S.toCharArray()){
+        for(char c:stones.toCharArray()){
             if(charsCount[c]!=0){
                 result++;
             }
@@ -133,11 +133,11 @@ public class StringProblems {
         return result;
     }
 
-    public int numJewelsInStones(String J, String S) {
+    public int numJewelsInStones(String jewels, String stones) {
         int result=0;
-        for(int i=0;i<S.length();i++){
-            for(int j=0;j<J.length();j++){
-                if(J.charAt(j)==S.charAt(i)){
+        for(int i=0;i<stones.length();i++){
+            for(int j=0;j<jewels.length();j++){
+                if(jewels.charAt(j)==stones.charAt(i)){
                     result++;
                 }
             }

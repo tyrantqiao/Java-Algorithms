@@ -51,8 +51,9 @@ public class AbstractFactoryPattern {
 	 * 这里应该是类为非静态，而方法为静态的，估计是因为内部类过多的缘故。
 	 */
 	class FactoryProducer {
+		final String SHAPE_FACTORY="ShapeFactory";
 		public AbstractFactory getFactory(String factoryType) {
-			if (factoryType == "ShapeFactory") {
+			if (SHAPE_FACTORY.equals(factoryType)) {
 				return new ShapeFactory();
 			}
 			return null;

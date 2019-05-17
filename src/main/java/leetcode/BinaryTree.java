@@ -16,22 +16,22 @@ public class BinaryTree {
      * 一层一层地对root的左右节点进行迭代判断，小于左则用右边的
      *
      * @param root
-     * @param L
-     * @param R
+     * @param left
+     * @param right
      * @return
      */
-    private TreeNode trimBST(TreeNode root, int L, int R) {
+    private TreeNode trimBST(TreeNode root, int left, int right) {
         if (root == null) {
             return root;
         }
-        if (root.val < L) {
-            return trimBST(root.right, L, R);
-        } else if (root.val > R) {
-            return trimBST(root.left, L, R);
+        if (root.val < left) {
+            return trimBST(root.right, left, right);
+        } else if (root.val > right) {
+            return trimBST(root.left, left, right);
         }
 
-        root.left = trimBST(root.left, L, R);
-        root.right = trimBST(root.right, L, R);
+        root.left = trimBST(root.left, left, right);
+        root.right = trimBST(root.right, left, right);
         return root;
     }
 
@@ -69,7 +69,8 @@ public class BinaryTree {
         }
 
         List<Integer> collection = res.get(level);
-        if (level % 2 == 0) {
+        int ROOT_NUM=2;
+        if (level % ROOT_NUM == 0) {
             collection.add(node.val);
         } else {
             collection.add(0, node.val);

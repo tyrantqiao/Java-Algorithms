@@ -11,14 +11,15 @@ public class MonotoneIncreasing {
 	 * 那么就讲字符串添加一个9上去。
 	 * 【性能差还有使用string转化的缘故】
 	 *
-	 * @param N
+	 * @param num
 	 * @return
 	 */
-	public int monotoneIncreasingDigitsByString(int N) {
-		if (N < 10) {
-			return N;
+	public int monotoneIncreasingDigitsByString(int num) {
+		int ten=10;
+		if (num < ten) {
+			return num;
 		}
-		String s = String.valueOf(N);
+		String s = String.valueOf(num);
 		String res = "";
 		int size = s.length();
 		keep:
@@ -52,12 +53,12 @@ public class MonotoneIncreasing {
 	/**
 	 * 遇到悬崖时勒马，并进行循环降一打击，直到保证单调性质为主，最后将后面都设为9。
 	 *
-	 * @param N
+	 * @param num
 	 * @return
 	 */
-	public int monotoneIncreasingDigitsByCliff(int N) {
+	public int monotoneIncreasingDigitsByCliff(int num) {
 		int i = 1;
-		char[] chars = String.valueOf(N).toCharArray();
+		char[] chars = String.valueOf(num).toCharArray();
 		while (i < chars.length && chars[i - 1] <= chars[i]) {
 			i++;
 		}
@@ -76,24 +77,24 @@ public class MonotoneIncreasing {
 	 * <p>
 	 * 核心是左右两位数进行比较，再用result进行存储比较结果，当左>右时，不满足递增，则应变为9+结果*10
 	 *
-	 * @param N
+	 * @param num
 	 * @return
 	 */
-	public int monotoneIncreasingDigitsFastest(int N) {
-		if (N < 10) {
-			return N;
+	public int monotoneIncreasingDigitsFastest(int num) {
+		if (num < 10) {
+			return num;
 		}
-		int right = N % 10;
-		int left = (N / 10) % 10;
+		int right = num % 10;
+		int left = (num / 10) % 10;
 		if (left <= right) {
-			int result = monotoneIncreasingDigitsFastest(N / 10);
+			int result = monotoneIncreasingDigitsFastest(num / 10);
 			if (result % 10 > left) {
 				return 9 + result * 10;
 			} else {
 				return right + result * 10;
 			}
 		} else {
-			return 9 + monotoneIncreasingDigitsFastest(N / 10 - 1) * 10;
+			return 9 + monotoneIncreasingDigitsFastest(num / 10 - 1) * 10;
 		}
 	}
 

@@ -9,15 +9,19 @@ import java.util.LinkedList;
  * contact: tyrantqiao@icloud.com
  */
 public class LengthOfWord {
+    final String STR_EMPTY="";
+    final String STR_SPACE=" ";
+
     /**
      * split函数分开拿最后的
+     * 在使用equals，要注意用字符串调用对象，eg："".equals(object)，避免object为null时产生错误，而不返回想要的false
      *
      * @param s
      * @return
      */
     public int lengthOfLastWord(String s) {
         s = s.trim();
-        if (s.equals("") || s.equals(" ")) {
+        if (STR_EMPTY.equals(s) || STR_SPACE.equals(s)) {
             return 0;
         }
 

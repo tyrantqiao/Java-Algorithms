@@ -15,7 +15,8 @@ public class MaximumGap {
 	 * @return
 	 */
 	public int maximumGap(int[] nums) {
-		if(nums.length<2){
+		int singleNum=2;
+		if(nums.length<singleNum){
 			return 0;
 		}
 
