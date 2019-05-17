@@ -145,8 +145,24 @@ public class StringProblems {
         return result;
     }
 
+    /**
+     * 主要就是以ascii大小写字母的差距32来做一个转换，返回时使用的String.valueOf，其实也可以考虑使用StringBuilder做一个拼接
+     * 其次就是原生态的String.toLowerCase()是通过&xxx，然后switch不同的case进行替换的，算个hard code吧。
+     * @param str
+     * @return
+     */
+    public String toLowerCase(String str) {
+        char[] result=str.toCharArray();
+        for(int i=0;i<str.length();i++){
+            if(Character.isUpperCase(str.charAt(i))){
+                result[i]= (char) (str.charAt(i)+32);
+            }
+        }
+        return String.valueOf(result);
+    }
+
     public static void main(String[] args) {
-        StringProblems stringProblems = new StringProblems();
-        System.out.println(stringProblems.checkInclusion("aba", "cbaa"));
+        String str="LOWer";
+        System.out.println(new StringProblems().toLowerCase(str));
     }
 }
