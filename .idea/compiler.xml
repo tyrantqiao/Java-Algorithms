@@ -11,8 +11,8 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="algorithms" target="$PROJECT.JAVA.VERSION$" />
-      <module name="mybatis-demo" target="$PROJECT.JAVA.VERSION$" />
+      <module name="algorithms" target="11" />
+      <module name="mybatis-demo" target="11" />
     </bytecodeTargetLevel>
   </component>
 </project>

@@ -12,7 +12,6 @@ public class MysqlSession {
     private Executor executor = new MyExecutor();
     private MyConfiguration myConfiguration = new MyConfiguration();
 
-
     <T> T query(String statement, Object parameter) {
         return executor.query(statement, parameter);
     }
