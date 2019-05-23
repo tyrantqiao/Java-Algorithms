@@ -1,6 +1,7 @@
 package leetcode;
 
 
+import java.util.HashSet;
 import java.util.Stack;
 
 /**
@@ -153,6 +154,28 @@ public class StringProblems {
             result[start++] = c;
         }
         return new String(result, 0, start);
+    }
+
+    /**
+     * 摩斯密码，hashSet做存储，同时由于set的特性，相同的不存，所以直接返回即可
+     *
+     * @param words
+     * @return
+     */
+    public int uniqueMorseRepresentations(String[] words) {
+        HashSet<String> result = new HashSet();
+        String[] MORSE = new String[]{".-", "-...", "-.-.", "-..", ".", "..-.", "--.",
+                "....", "..", ".---", "-.-", ".-..", "--", "-.",
+                "---", ".--.", "--.-", ".-.", "...", "-", "..-",
+                "...-", ".--", "-..-", "-.--", "--.."};
+        for (String word : words) {
+            StringBuilder stringBuilder = new StringBuilder();
+            for (char c : word.toCharArray()) {
+                stringBuilder.append(MORSE[c - 'a']);
+            }
+            result.add(stringBuilder.toString());
+        }
+        return result.size();
     }
 
     /**
