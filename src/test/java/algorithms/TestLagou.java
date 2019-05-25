@@ -8,7 +8,7 @@ import java.util.Stack;
  * @author tyrantqiao
  * date: 2019/5/6
  * blog: tyrantqiao.com
- * contact: tyrantqiao@icloud.com
+ * contact: tyrantqiao@gmail.com
  */
 public class TestLagou {
     public static void main(String[] args){

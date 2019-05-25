@@ -12,7 +12,7 @@ import java.sql.SQLException;
  * @author tyrantqiao
  * date: 2019/4/27
  * blog: tyrantqiao.com
- * contact: tyrantqiao@icloud.com
+ * contact: tyrantqiao@gmail.com
  */
 public class MyExecutor implements Executor {
     private MyConfiguration myConfiguration = new MyConfiguration();

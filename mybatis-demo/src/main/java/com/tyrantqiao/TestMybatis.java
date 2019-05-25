@@ -8,7 +8,7 @@ import com.tyrantqiao.sqlsession.MysqlSession;
  * @author tyrantqiao
  * date: 2019/4/27
  * blog: tyrantqiao.com
- * contact: tyrantqiao@icloud.com
+ * contact: tyrantqiao@gmail.com
  */
 public class TestMybatis {
     public static void main(String[] args) {

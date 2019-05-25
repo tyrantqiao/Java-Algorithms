@@ -4,7 +4,7 @@ package interview;
  * @author tyrantqiao
  * date: 2018/11/22
  * blog: tyrantqiao.com
- * contact: tyrantqiao@icloud.com
+ * contact: tyrantqiao@gmail.com
  */
 public class ShenZhouInterview {
 

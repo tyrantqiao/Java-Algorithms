@@ -19,7 +19,7 @@ import org.dom4j.io.SAXReader;
  * @author tyrantqiao
  * date: 2019/4/27
  * blog: tyrantqiao.com
- * contact: tyrantqiao@icloud.com
+ * contact: tyrantqiao@gmail.com
  */
 public class MyConfiguration {
     private static ClassLoader loader = ClassLoader.getSystemClassLoader();

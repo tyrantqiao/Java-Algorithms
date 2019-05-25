@@ -6,7 +6,7 @@ import java.util.Arrays;
  * @author tyrantqiao
  * date: 2019/5/13
  * blog: tyrantqiao.com
- * contact: tyrantqiao@icloud.com
+ * contact: tyrantqiao@gmail.com
  */
 public class Sort {
     public int[] quickSort(int[] nums, int left, int right) {

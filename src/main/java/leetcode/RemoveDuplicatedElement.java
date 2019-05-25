@@ -9,7 +9,7 @@ import java.util.Set;
  * @author tyrantqiao
  * date: 2018/10/26
  * blog: tyrantqiao.com
- * contact: tyrantqiao@icloud.com
+ * contact: tyrantqiao@gmail.com
  */
 public class RemoveDuplicatedElement {
     /**

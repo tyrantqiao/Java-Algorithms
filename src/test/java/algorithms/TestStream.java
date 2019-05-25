@@ -8,7 +8,7 @@ import java.util.List;
 
 /**
  * @author qiao
- * email: tyrantqiao@icloud.com
+ * email: tyrantqiao@gmail.com
  * time: 2017/9/18 21:25
  */
 public class TestStream {

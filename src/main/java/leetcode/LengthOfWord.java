@@ -6,7 +6,7 @@ import java.util.LinkedList;
  * @author tyrantqiao
  * date: 2018/11/14
  * blog: tyrantqiao.com
- * contact: tyrantqiao@icloud.com
+ * contact: tyrantqiao@gmail.com
  */
 public class LengthOfWord {
     final String STR_EMPTY="";

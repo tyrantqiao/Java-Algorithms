@@ -6,7 +6,7 @@ import java.lang.reflect.Proxy;
  * @author tyrantqiao
  * date: 2019/4/27
  * blog: tyrantqiao.com
- * contact: tyrantqiao@icloud.com
+ * contact: tyrantqiao@gmail.com
  */
 public class MysqlSession {
     private Executor executor = new MyExecutor();

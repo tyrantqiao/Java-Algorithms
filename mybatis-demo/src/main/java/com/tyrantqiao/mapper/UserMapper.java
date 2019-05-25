@@ -6,7 +6,7 @@ import com.tyrantqiao.bean.User;
  * @author tyrantqiao
  * date: 2019/4/27
  * blog: tyrantqiao.com
- * contact: tyrantqiao@icloud.com
+ * contact: tyrantqiao@gmail.com
  *
  * mapper是什么？其主要作用为定义SQL语句与映射关系
  */

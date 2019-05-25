@@ -6,7 +6,7 @@ import lombok.Data;
  * @author tyrantqiao
  * date: 2019/4/27
  * blog: tyrantqiao.com
- * contact: tyrantqiao@icloud.com
+ * contact: tyrantqiao@gmail.com
  *
  * 做一个sql的拼接函数
  */

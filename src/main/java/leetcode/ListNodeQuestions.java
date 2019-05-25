@@ -6,7 +6,7 @@ import java.util.*;
  * @author tyrantqiao
  * date: 2019/1/15
  * blog: tyrantqiao.com
- * contact: tyrantqiao@icloud.com
+ * contact: tyrantqiao@gmail.com
  */
 public class ListNodeQuestions {
     /**

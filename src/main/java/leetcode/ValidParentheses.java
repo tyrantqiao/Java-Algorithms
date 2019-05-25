@@ -7,7 +7,7 @@ import java.util.Stack;
  * @author tyrantqiao
  * date: 2018/10/24
  * blog: tyrantqiao.com
- * contact: tyrantqiao@icloud.com
+ * contact: tyrantqiao@gmail.com
  */
 
 public class ValidParentheses {

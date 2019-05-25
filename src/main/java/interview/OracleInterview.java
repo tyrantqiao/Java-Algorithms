@@ -8,7 +8,7 @@ import java.util.TreeSet;
  * @author tyrantqiao
  * date: 2018/10/27
  * blog: tyrantqiao.com
- * contact: tyrantqiao@icloud.com
+ * contact: tyrantqiao@gmail.com
  */
 public class OracleInterview {
     /**

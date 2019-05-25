@@ -6,7 +6,7 @@ import java.util.HashMap;
  * @author tyrantqiao
  * date: 2019/5/25
  * blog: tyrantqiao.com
- * contact: tyrantqiao@icloud.com
+ * contact: tyrantqiao@gmail.com
  */
 public class FindQuestion {
     /**

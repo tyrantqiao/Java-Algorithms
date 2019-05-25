@@ -6,7 +6,7 @@ import java.util.Arrays;
  * @author tyrantqiao
  * date: 2019/5/23
  * blog: tyrantqiao.com
- * contact: tyrantqiao@icloud.com
+ * contact: tyrantqiao@gmail.com
  */
 public class ArrayProblems {
     /**
