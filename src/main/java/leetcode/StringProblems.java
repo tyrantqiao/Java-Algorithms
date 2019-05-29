@@ -2,12 +2,34 @@ package leetcode;
 
 
 import java.util.HashSet;
+import java.util.Set;
 import java.util.Stack;
 
 /**
  * @author tyrantqiao
  */
 public class StringProblems {
+    /**
+     * 主要是indexOf和replace实现获取
+     *
+     * @param emails
+     * @return
+     */
+    public int numUniqueEmails(String[] emails) {
+        Set<String> uniqueSet = new HashSet<>();
+        for (String email : emails) {
+            int divide = email.indexOf('@');
+            String local = email.substring(0, divide);
+            String host = email.substring(divide);
+            if (local.contains("+")) {
+                local = local.substring(0, local.indexOf('+'));
+            }
+            local = local.replaceAll("\\.", "");
+            uniqueSet.add(local + host);
+        }
+        return uniqueSet.size();
+    }
+
     /**
      * Sliding Window
      * 用字母数组装字符，每次仅装s1的size，用来进行匹配，matches()函数
