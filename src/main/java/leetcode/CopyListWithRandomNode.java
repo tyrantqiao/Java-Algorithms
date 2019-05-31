@@ -81,7 +81,7 @@ public class CopyListWithRandomNode {
             return null;
         }
 
-        Map<RandomListNode, RandomListNode> map = new HashMap<RandomListNode, RandomListNode>();
+        Map<RandomListNode, RandomListNode> map = new HashMap<>();
         // loop 1. copy all the nodes
         RandomListNode node = head;
         while (node != null) {

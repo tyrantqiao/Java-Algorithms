@@ -1,5 +1,6 @@
 package leetcode;
 
+import java.util.Arrays;
 import java.util.HashMap;
 
 /**
@@ -9,6 +10,24 @@ import java.util.HashMap;
  * contact: tyrantqiao@gmail.com
  */
 public class FindQuestion {
+    /**
+     * 这道题我觉得设置的有问题，题目要求的是不在合适位置的数字数量，而实际上要的是  变成递增数列所需移动的数字次数。
+     *
+     * @param heights
+     * @return
+     */
+    public int heightChecker(int[] heights) {
+        int result = 0;
+        int[] check = Arrays.copyOf(heights, heights.length);
+        Arrays.sort(heights);
+        for (int i = 0; i < heights.length; i++) {
+            if (heights[i] != check[i]) {
+                result++;
+            }
+        }
+        return result;
+    }
+
     /**
      * 这个其实也就找重复的元素，而其他元素都是不重复的，所以只要返回map里面存在的key就可以了，所以其实就不用记录出现次数
      *
