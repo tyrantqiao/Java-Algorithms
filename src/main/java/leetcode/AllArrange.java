@@ -9,6 +9,26 @@ import java.util.List;
  * email: tyrantqiao@gmail.com
  */
 public class AllArrange {
+    /**
+     * 理解为三个人ABC拍照
+     * ABC 拍照
+     * B和C 换位
+     * ACB 拍照
+     * B和C 换位
+     * ABC
+     * A和C 换位
+     * CBA 拍照
+     * B和A 换位
+     * CAB 拍照
+     * AB换位
+     * CBA
+     * C和A 换位
+     * ABC
+     *
+     * @param result 结果列表
+     * @param array  数组
+     * @param start  开始位置
+     */
     public static void permutation(ArrayList result, char array[], int start) {
         if (start == array.length) {
             result.add(new String(array));
