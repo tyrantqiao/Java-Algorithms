@@ -1,6 +1,7 @@
 package easycode.dao;
 
 import easycode.entity.Test;
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import java.util.List;
 
@@ -10,6 +11,7 @@ import java.util.List;
  * @author makejava
  * @since 2020-03-01 15:58:16
  */
+@Mapper
 public interface TestDao {
 
     /**

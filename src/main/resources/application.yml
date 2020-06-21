@@ -1,0 +1,13 @@
+server:
+  port: 8089
+spring:
+  datasource:
+    username: root
+    password: %5QWERzxc
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/test?useUnicode=true&characterEncoding=UTF-8&useSSL=false
+#  autoconfigure:
+#    exclude: org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
+mybatis:
+  mapper-locations:  classpath:/mapper/*Dao.xml
+  typeAliasesPackage: easycode.entity

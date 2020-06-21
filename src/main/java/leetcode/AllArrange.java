@@ -6,7 +6,7 @@ import java.util.List;
 /**
  * @author tyrantqiao
  * @date 2020/1/6
- * email: tyrantqiao@gmail.com
+ * email tyrantqiao@gmail.com
  */
 public class AllArrange {
     /**
@@ -20,7 +20,7 @@ public class AllArrange {
      * CBA 拍照
      * B和A 换位
      * CAB 拍照
-     * AB换位
+     * AB  换位
      * CBA
      * C和A 换位
      * ABC
