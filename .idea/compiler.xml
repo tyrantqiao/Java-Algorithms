@@ -11,8 +11,8 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="algorithms" target="11" />
-      <module name="mybatis-demo" target="11" />
+      <module name="algorithms" target="14" />
+      <module name="mybatis-demo" target="14" />
     </bytecodeTargetLevel>
   </component>
 </project>
