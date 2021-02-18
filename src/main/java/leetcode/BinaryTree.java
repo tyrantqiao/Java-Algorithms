@@ -1,8 +1,9 @@
 package leetcode;
 
-import org.antlr.runtime.tree.Tree;
-
-import java.util.*;
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Stack;
 
 /**
  * <a href="https://leetcode.com/problems/binary-tree-zigzag-level-order-traversal/description/"></a>
@@ -15,10 +16,10 @@ public class BinaryTree {
     /**
      * 一层一层地对root的左右节点进行迭代判断，小于左则用右边的
      *
-     * @param root
-     * @param left
-     * @param right
-     * @return
+     * @param root  节点
+     * @param left  左
+     * @param right 右
+     * @return 二叉树调整后
      */
     private TreeNode trimBST(TreeNode root, int left, int right) {
         if (root == null) {
@@ -69,7 +70,7 @@ public class BinaryTree {
         }
 
         List<Integer> collection = res.get(level);
-        int ROOT_NUM=2;
+        int ROOT_NUM = 2;
         if (level % ROOT_NUM == 0) {
             collection.add(node.val);
         } else {
@@ -81,7 +82,7 @@ public class BinaryTree {
     }
 
     public List<Integer> inorderTraversal(TreeNode root) {
-        List<Integer> result = new ArrayList<Integer>();
+        List<Integer> result = new ArrayList<>();
         getNodeByInorderIterative(root, result);
         return result;
     }

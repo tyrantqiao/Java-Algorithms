@@ -11,3 +11,4 @@ target/
 /mybatis-demo/.classpath
 /mybatis-demo/.factorypath
 /mybatis-demo/.project
+/.idea/
