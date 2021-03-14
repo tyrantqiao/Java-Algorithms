@@ -1,14 +1,10 @@
 # Created by .ignore support plugin (hsz.mobi)
 .gitignore
-.idea/inspectionProfiles/
-.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_api_5_0_1.xml
-.idea/libraries/Maven__org_junit_platform_junit_platform_commons_1_0_1.xml
-.idea/markdown-exported-files.xml
-.idea/vcs.xml
-.idea/workspace.xml
+
 target/
 /mybatis-demo/.settings/
 /mybatis-demo/.classpath
 /mybatis-demo/.factorypath
 /mybatis-demo/.project
-/.idea/
+/.idea/**
+.idea/**
