@@ -8,3 +8,5 @@ target/
 /mybatis-demo/.project
 /.idea/**
 .idea/**
+
+**/*.iml
