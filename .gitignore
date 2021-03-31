@@ -8,5 +8,7 @@ target/
 /mybatis-demo/.project
 /.idea/**
 .idea/**
+.settings/**
+.vscode/**
 
 **/*.iml

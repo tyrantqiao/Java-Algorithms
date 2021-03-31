@@ -1,6 +1,7 @@
 package com.tyrantqiao.sqlsession;
 
 import java.io.InputStream;
+import java.lang.reflect.InvocationTargetException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -22,19 +23,19 @@ import org.dom4j.io.SAXReader;
  * contact: tyrantqiao@gmail.com
  */
 public class MyConfiguration {
-    private static ClassLoader loader = ClassLoader.getSystemClassLoader();
+    private static final ClassLoader LOADER = ClassLoader.getSystemClassLoader();
     final String EXPECT_ROOT_NAME = "datasource";
     final String DATASOURCE_PROPERTY = "property";
 
     public Connection build(String resource) {
         try {
-            InputStream stream = loader.getResourceAsStream(resource);
+            InputStream stream = LOADER.getResourceAsStream(resource);
             SAXReader reader = new SAXReader();
             Document document = reader.read(stream);
             Element root = document.getRootElement();
             return evalDatasource(root);
         } catch (Exception e) {
-            throw new RuntimeException("error：" + e.toString() + " occured while evaling xml " + resource);
+            throw new RuntimeException("error：" + e.toString() + " occurred while evading xml " + resource);
         }
     }
 
@@ -55,20 +56,11 @@ public class MyConfiguration {
                 throw new RuntimeException("[database]: <property> should contain name and value");
             }
             switch (name) {
-                case "url":
-                    url = value;
-                    break;
-                case "username":
-                    username = value;
-                    break;
-                case "password":
-                    password = value;
-                    break;
-                case "driverClassName":
-                    driverClassName = value;
-                    break;
-                default:
-                    throw new RuntimeException("[database]: <property> unknown name");
+                case "url" -> url = value;
+                case "username" -> username = value;
+                case "password" -> password = value;
+                case "driverClassName" -> driverClassName = value;
+                default -> throw new RuntimeException("[database]: <property> unknown name");
             }
         }
 
@@ -76,6 +68,7 @@ public class MyConfiguration {
         Class.forName(driverClassName);
         Connection connection = null;
         try {
+            assert url != null;
             connection = DriverManager.getConnection(url, username, password);
         } catch (SQLException e) {
             e.printStackTrace();
@@ -83,7 +76,9 @@ public class MyConfiguration {
         return connection;
     }
 
-    //获取property属性的值,如果有value值,则读取 没有设置value,则读取内容
+    /**
+     *     获取property属性的值,如果有value值,则读取 没有设置value,则读取内容
+     */
     private String getValue(Element node) {
         return node.hasContent() ? node.getText() : node.attributeValue("value");
     }
@@ -94,21 +89,21 @@ public class MyConfiguration {
      * <p>
      * suppress压制错误
      *
-     * @param path
-     * @return
+     * @param path 路径
+     * @return mapperBean
      */
     @SuppressWarnings("rawtypes")
     public MapperBean readMapper(String path) {
         MapperBean mapper = new MapperBean();
         try {
-            InputStream stream = loader.getResourceAsStream(path);
+            InputStream stream = LOADER.getResourceAsStream(path);
             SAXReader reader = new SAXReader();
             Document document = reader.read(stream);
             Element root = document.getRootElement();
             mapper.setInterfaceName(root.attributeValue("namespace").trim());
             System.out.println(mapper.getInterfaceName());
             //把mapper节点的nameSpace值存为接口名
-            List<Function> list = new ArrayList<Function>();
+            List<Function> list = new ArrayList<>();
             //用来存储方法的List
             for (Iterator rootIter = root.elementIterator(); rootIter.hasNext(); ) {
                 //遍历根节点下所有子节点
@@ -123,12 +118,8 @@ public class MyConfiguration {
                 fun.setFuncName(funcName);
                 Object newInstance = null;
                 try {
-                    newInstance = Class.forName(resultType).newInstance();
-                } catch (InstantiationException e1) {
-                    e1.printStackTrace();
-                } catch (IllegalAccessException e1) {
-                    e1.printStackTrace();
-                } catch (ClassNotFoundException e1) {
+                    newInstance = Class.forName(resultType).getDeclaredConstructor().newInstance();
+                } catch (InstantiationException | ClassNotFoundException | NoSuchMethodException | IllegalAccessException | InvocationTargetException e1) {
                     e1.printStackTrace();
                 }
                 fun.setResultType(newInstance);
