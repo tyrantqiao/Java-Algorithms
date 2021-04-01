@@ -11,8 +11,8 @@ class LearnListNodeTest {
 
     @Test
     public void testReverseRange() {
-        ListNode testListNode = learnListNode.generateListNode(10);
-        System.out.println(learnListNode.reverseRange(testListNode,2,3));
+        ListNode testListNode = learnListNode.generateListNode(5);
+        System.out.println(learnListNode.reverseRange(testListNode,2,1));
     }
 
     @Test

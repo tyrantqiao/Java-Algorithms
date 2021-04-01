@@ -85,12 +85,20 @@ public class LearnListNode {
         return last;
     }
 
-    public ListNode reverseRange(ListNode head, int begin, int needReverseSize) {
+    /**
+     * 翻转区间内的值
+     *
+     * @param head  头节点
+     * @param begin 开始
+     * @param end   结尾
+     * @return 翻转后结果
+     */
+    public ListNode reverseRange(ListNode head, int begin, int end) {
         if (begin == 1) {
-            return reversePreN(head, needReverseSize);
+            return reversePreN(head, end);
         }
 
-        head.next = reverseRange(head.next, begin - 1, needReverseSize - 1);
+        head.next = reverseRange(head.next, begin - 1, end - 1);
         return head;
     }
 
