@@ -13,6 +13,11 @@ public class ListNode {
         val = x;
     }
 
+    public ListNode(int val, ListNode next) {
+        this.val = val;
+        this.next = next;
+    }
+
     @Override
     public int hashCode() {
         int result = Integer.hashCode(val);
@@ -35,18 +40,18 @@ public class ListNode {
     /**
      * 做一个toString()，方便检查答案是否正确，通过迭代形式迭代出全部节点
      *
-     * @return
+     * @return toString
      */
     @Override
     public String toString() {
-        StringBuffer stringBuffer = new StringBuffer();
+        StringBuilder stringBuilder = new StringBuilder();
         ListNode tempNode = this;
         while (tempNode != null) {
-            stringBuffer.append(tempNode.val);
-            stringBuffer.append("->");
+            stringBuilder.append(tempNode.val);
+            stringBuilder.append("->");
             tempNode = tempNode.next;
         }
-        stringBuffer.append("null");
-        return stringBuffer.toString();
+        stringBuilder.append("null");
+        return stringBuilder.toString();
     }
 }
