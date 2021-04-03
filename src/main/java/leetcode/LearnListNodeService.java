@@ -9,9 +9,9 @@ package leetcode;
  * @author tyrantqiao
  * @version 1.0
  **/
-public class LearnListNode {
+public class LearnListNodeService {
     /**
-     * 反向链表
+     * 反向链表【递归版】
      * <p>
      * 这么理解：
      * 1️⃣ 当头节点调用reverse(head.next)时，本质是为了拿到最后的last节点，而这个last节点是反转之后的头节点！
@@ -30,17 +30,43 @@ public class LearnListNode {
      * @param head 头节点
      * @return 反向
      */
-    public ListNode reverse(ListNode head) {
+    public ListNode reverseRecursion(ListNode head) {
         if (head.next == null) {
             return head;
         }
 
-        ListNode last = reverse(head.next);
+        ListNode last = reverseRecursion(head.next);
         head.next.next = head;
         head.next = null;
         return last;
     }
 
+
+    /**
+     * 翻转链表【迭代版本】
+     * 区间为 [a,b)
+     *
+     * @param head 头节点
+     * @param n    指定节点
+     * @return 翻转链表
+     */
+    public ListNode reverseIteration(ListNode head, ListNode n) {
+        ListNode pre, cur, next;
+        pre = null;
+        cur = head;
+
+        while (cur != n) {
+            //    暂存cur的后续节点
+            next = cur.next;
+
+            //    开始翻转
+            cur.next = pre;
+            pre = cur;
+            cur = next;
+        }
+
+        return pre;
+    }
 
     /**
      * N+1的节点，即无需反向的链表节点
@@ -101,6 +127,15 @@ public class LearnListNode {
         head.next = reverseRange(head.next, begin - 1, end - 1);
         return head;
     }
+
+    //public ListNode reverseKGroup(ListNode head, int groupSize) {
+    //    if (groupSize == 0) {
+    //        return reverseRange(head, 0, groupSize - 1);
+    //    }
+    //
+    //    head.next = reverseKGroup(head.next, groupSize--);
+    //}
+
 
     /**
      * 产生列表node
