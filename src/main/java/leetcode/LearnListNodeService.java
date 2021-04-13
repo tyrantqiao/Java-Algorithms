@@ -31,7 +31,8 @@ public class LearnListNodeService {
      * @return 反向
      */
     public ListNode reverseRecursion(ListNode head) {
-        if (head.next == null) {
+        //判空
+        if (head == null || head.next == null) {
             return head;
         }
 
@@ -45,6 +46,10 @@ public class LearnListNodeService {
     /**
      * 翻转链表【迭代版本】
      * 区间为 [a,b)
+     * <p>
+     * head 1->2->3->4->5
+     * n    3->4->5
+     * 结果= 1->2->null
      *
      * @param head 头节点
      * @param n    指定节点
@@ -128,13 +133,38 @@ public class LearnListNodeService {
         return head;
     }
 
-    //public ListNode reverseKGroup(ListNode head, int groupSize) {
-    //    if (groupSize == 0) {
-    //        return reverseRange(head, 0, groupSize - 1);
-    //    }
-    //
-    //    head.next = reverseKGroup(head.next, groupSize--);
-    //}
+    /**
+     * 翻转k group，按照groupSize
+     * 比如说1->2->3->4->5->null  group:2
+     * 那么结果就是2->1->4->3->5
+     *
+     * @param head      头节点
+     * @param groupSize groupSize
+     * @return kGroup的翻转
+     */
+    public ListNode reverseKGroup(ListNode head, int groupSize) {
+        if (head == null) {
+            return null;
+        }
+
+        ListNode a, b;
+        a = b = head;
+        for (int i = 0; i < groupSize; i++) {
+            //若数量不足，则直接return head节点，作为尾部分
+            if (b == null) {
+                return head;
+            }
+            //若数量足，则一直找到下个group节点
+            b = b.next;
+        }
+
+        //翻转a，b的这一组数据
+        ListNode newHead = reverseIteration(a, b);
+        //翻转后，就由a->b 变为了b->a ，所以是a.next=reverseKGroup(b,groupSize);
+        // b->a->下一组group
+        a.next = reverseKGroup(b, groupSize);
+        return newHead;
+    }
 
 
     /**

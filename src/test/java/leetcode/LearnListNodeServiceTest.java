@@ -11,6 +11,14 @@ class LearnListNodeServiceTest {
     LearnListNodeService learnListNodeService = new LearnListNodeService();
 
     @Test
+    void testReverseKGroup_2() {
+        ListNode testListNode = learnListNodeService.generateListNode(5);
+        ListNode result = learnListNodeService.reverseKGroup(testListNode, 2);
+        System.out.println(result);
+        assertEquals(1, result.val);
+    }
+
+    @Test
     void testReverseIteration_to3() {
         ListNode testListNode = learnListNodeService.generateListNode(5);
 
