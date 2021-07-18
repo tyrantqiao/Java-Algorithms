@@ -26,7 +26,10 @@ public class Sort {
         }
         int temp = nums[left];
         int head = left, tail = right;
-//        每次都将left作为temp值进行比较，分出小于堆和大于堆
+        // 每次都将left作为temp值进行比较，分出小于堆和大于堆
+        // 每一次比较都要让 (head=left) ----->  (tail=right)
+        // 变成 head-->right-->left-->tail
+        // 这样子就分为了两组： head至right 以及 left 至tail组
         while (left <= right) {
             while (nums[left] < temp) {
                 left++;
@@ -38,7 +41,7 @@ public class Sort {
                 swap(nums, right, left);
                 left++;
                 right--;
-//                当相等时，让left++
+                //                当相等时，让left++
             } else if (left == right) {
                 ++left;
             }
