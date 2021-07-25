@@ -36,7 +36,11 @@ public class Fibonacci {
      * @return 数字对应的值
      */
     public int fibMemorandum(int whichNumber) {
-        if (whichNumber <= 1) {
+        if (whichNumber < 1) {
+            return 0;
+        }
+
+        if (whichNumber == 1) {
             return 1;
         }
 
@@ -68,8 +72,58 @@ public class Fibonacci {
                         + memorandumCalculate(memorandumArray, whichNumber - 2);
     }
 
+    /**
+     * 自底向上，其实跟上面自顶向下步骤是一样的，只是这边是从底部开始算，其实效率上都一样。
+     *
+     * @param whichNumber 第几位数
+     * @return 第几位数的数值是什么
+     */
+    private int fibonacciFromBottom(int whichNumber) {
+        if (whichNumber < 1) {
+            return 0;
+        }
+
+        if (whichNumber == 1 || whichNumber == 2) {
+            return 1;
+        }
+
+        int[] dpArray = new int[whichNumber + 1];
+
+        dpArray[1] = dpArray[2] = 1;
+        for (int currentIndex = 3; currentIndex <= whichNumber; currentIndex++) {
+            dpArray[currentIndex] = dpArray[currentIndex - 1] + dpArray[currentIndex - 2];
+        }
+        return dpArray[whichNumber];
+    }
+
+    /**
+     * 斐波那契压缩版，只记录fib(n-1)和fib(n-2)的状态
+     *
+     * @param whichNumber 第几位数
+     * @return 第几位数的值是什么
+     */
+    private int fibonacciCompression(int whichNumber) {
+        if (whichNumber < 1) {
+            return 0;
+        }
+
+        if (whichNumber == 1 || whichNumber == 2) {
+            return 1;
+        }
+
+        int prev = 1, curr = 1;
+        for (int currentIndex = 3; currentIndex <= whichNumber; currentIndex++) {
+            int sum = prev + curr;
+            prev = curr;
+            curr = sum;
+        }
+        return curr;
+    }
+
     public static void main(String[] args) {
         System.out.println(new Fibonacci().fib(5));
         System.out.println(new Fibonacci().fibMemorandum(5));
+        System.out.println(new Fibonacci().fibonacciFromBottom(5));
+        System.out.println(new Fibonacci().fibonacciCompression(5));
     }
 }
