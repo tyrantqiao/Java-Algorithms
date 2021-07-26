@@ -1,7 +1,5 @@
 package dynamic.programming;
 
-import com.google.common.collect.Lists;
-
 import java.util.Arrays;
 import java.util.List;
 
@@ -17,7 +15,6 @@ import java.util.List;
 public class CoinTip {
     /**
      * 暴力解法，本质在于不断求解子方程，并利用当等于0时，返回1，假如扣成负数，那就返回-1
-     *
      *
      * @param canUseCoinList   可以使用的硬币列表
      * @param needToCombineTip 需要凑成的小费
@@ -44,34 +41,43 @@ public class CoinTip {
 
     /**
      * 备忘录方法，本质在于不断求解子方程，并利用当等于0时，返回1，假如扣成负数，那就返回-1
-     * TBD   待完成
      *
-     * @param canUseCoinList   可以使用的硬币列表
-     * @param needToCombineTip 需要凑成的小费
+     * @param minCoinTipCombinationArray 每次计算的最小结果集
+     * @param canUseCoinList             可以使用的硬币列表
+     * @param needToCombineTip           需要凑成的小费
      * @return 最小数量是什么
      */
-    public int findMinCoinTipCombinationMemorandum(List<Integer> canUseCoinList, int needToCombineTip) {
+    public int findMinCoinTipCombinationMemorandum(int[] minCoinTipCombinationArray, List<Integer> canUseCoinList, int needToCombineTip) {
         if (needToCombineTip == 0) {
             return 0;
         }
+
         if (needToCombineTip < 0) {
             return -1;
         }
 
+        if (minCoinTipCombinationArray[needToCombineTip] != 0) {
+            return minCoinTipCombinationArray[needToCombineTip];
+        }
+
         int result = Integer.MAX_VALUE;
         for (int eachCombinationCoin : canUseCoinList) {
-            int eachResult = findMinCoinTipCombinationMemorandum(canUseCoinList, needToCombineTip - eachCombinationCoin);
+            int eachResult = findMinCoinTipCombinationMemorandum(minCoinTipCombinationArray, canUseCoinList, needToCombineTip - eachCombinationCoin);
             if (eachResult == -1) {
                 continue;
             }
             result = Math.min(result, 1 + eachResult);
         }
-        return result == Integer.MAX_VALUE ? -1 : result;
+        return minCoinTipCombinationArray[needToCombineTip] = result == Integer.MAX_VALUE ? -1 : result;
     }
 
     public static void main(String[] args) {
         List<Integer> canUseCoinList = Arrays.asList(1, 2, 5, 10);
-        List<Integer> minCoinCombinationList = Lists.newArrayList();
-        System.out.println(new CoinTip().findMinCoinTipCombination(canUseCoinList, 22));
+
+        int needToCombineTip = 22;
+        int[] minCoinTipCombinationArray = new int[needToCombineTip + 1];
+        Arrays.fill(minCoinTipCombinationArray, 0);
+        System.out.println(new CoinTip().findMinCoinTipCombination(canUseCoinList, needToCombineTip));
+        System.out.println(new CoinTip().findMinCoinTipCombinationMemorandum(minCoinTipCombinationArray, canUseCoinList, needToCombineTip));
     }
 }

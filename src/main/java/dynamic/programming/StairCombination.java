@@ -22,7 +22,7 @@ public class StairCombination {
      * @param needToReachStair   需要到达的阶梯
      * @return 阶梯组合
      */
-    public int stairCombination(AtomicInteger allCombinationSize, List<Integer> canUseStairList, int needToReachStair) {
+    public int findMinStairCombination(AtomicInteger allCombinationSize, List<Integer> canUseStairList, int needToReachStair) {
         if (needToReachStair == 0) {
             allCombinationSize.incrementAndGet();
             return 0;
@@ -34,7 +34,7 @@ public class StairCombination {
 
         int result = Integer.MAX_VALUE;
         for (int canUseStair : canUseStairList) {
-            int eachResult = stairCombination(allCombinationSize, canUseStairList, needToReachStair - canUseStair);
+            int eachResult = findMinStairCombination(allCombinationSize, canUseStairList, needToReachStair - canUseStair);
             if (eachResult == -1) {
                 continue;
             }
@@ -45,9 +45,40 @@ public class StairCombination {
         return result == Integer.MAX_VALUE ? -1 : result;
     }
 
+    public int findMinStairCombinationMemorandum(int[] minCombinationMemorandum, List<Integer> canUseStairList, int needToReachStair) {
+        if (needToReachStair == 0) {
+            return 0;
+        }
+
+        if (needToReachStair < 0) {
+            return -1;
+        }
+
+        if (minCombinationMemorandum[needToReachStair] != 0) {
+            return minCombinationMemorandum[needToReachStair];
+        }
+
+        int result = Integer.MAX_VALUE;
+        for (int canUseStair : canUseStairList) {
+            int eachResult = findMinStairCombinationMemorandum(minCombinationMemorandum, canUseStairList, needToReachStair - canUseStair);
+            if (eachResult == -1) {
+                continue;
+            }
+
+            result = Math.min(result, eachResult + 1);
+        }
+
+        minCombinationMemorandum[needToReachStair] = result == Integer.MAX_VALUE ? -1 : result;
+        return minCombinationMemorandum[needToReachStair];
+    }
+
     public static void main(String[] args) {
         AtomicInteger allCombinationSize = new AtomicInteger(0);
-        System.out.println(new StairCombination().stairCombination(allCombinationSize, Arrays.asList(1, 2), 9));
+        int needToReachStair = 9;
+        System.out.println(new StairCombination().findMinStairCombination(allCombinationSize, Arrays.asList(1, 2), needToReachStair));
         System.out.println("all: " + allCombinationSize);
+
+        int[] memorandumCombination = new int[needToReachStair + 1];
+        System.out.println(new StairCombination().findMinStairCombinationMemorandum(memorandumCombination, Arrays.asList(1, 2), needToReachStair));
     }
 }
