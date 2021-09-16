@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="easycode.dao.TestDao">
+<mapper namespace="com.tyrantqiao.algorithms.easycode.dao.TestDao">
 
-    <resultMap type="easycode.entity.Test" id="TestMap">
+    <resultMap type="com.tyrantqiao.algorithms.easycode.entity.Test" id="TestMap">
         <result property="a" column="a" jdbcType="INTEGER"/>
         <result property="b" column="b" jdbcType="INTEGER"/>
         <result property="c" column="c" jdbcType="INTEGER"/>

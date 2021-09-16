@@ -1,5 +1,6 @@
 package interview;
 
+import com.tyrantqiao.algorithms.interview.BasicDataType;
 import org.junit.jupiter.api.Test;
 
 /**

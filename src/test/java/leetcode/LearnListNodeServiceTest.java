@@ -1,5 +1,7 @@
 package leetcode;
 
+import com.tyrantqiao.algorithms.leetcode.LearnListNodeService;
+import com.tyrantqiao.algorithms.leetcode.ListNode;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;

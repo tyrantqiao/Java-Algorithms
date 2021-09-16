@@ -1,6 +1,6 @@
 package algorithms;
 
-import data.PriorQueue;
+import com.tyrantqiao.algorithms.data.PriorQueue;
 import org.junit.jupiter.api.Test;
 
 

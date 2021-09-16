@@ -1,10 +1,8 @@
 package interview.proxy;
 
-import interview.proxy.api.ISayHello;
-import org.hibernate.proxy.ProxyFactory;
+import com.tyrantqiao.algorithms.interview.proxy.*;
+import com.tyrantqiao.algorithms.interview.proxy.api.ISayHello;
 import org.junit.jupiter.api.Test;
-
-import javax.xml.stream.events.StartDocument;
 
 /**
  * 测试静态代理以及动态代理的区别$
