@@ -1,9 +1,13 @@
 package com.tyrantqiao.algorithms.find;
 
 import com.google.common.collect.Lists;
+import com.google.common.collect.Maps;
+import io.swagger.models.auth.In;
 
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 /**
@@ -84,26 +88,81 @@ public class FindSumNums {
         for (int right = 0; right < numbers.length; right++) {
             sum += numbers[right];
             while (left < right && sum >= target) {
-                minLength = Math.min(minLength, right - left + 1);
-                result = numbersList.subList(left, right + 1);
+                if(minLength>right-left+1) {
+                    minLength = Math.min(minLength, right - left + 1);
+                    result = numbersList.subList(left, right + 1);
+                }
                 sum -= numbers[left++];
             }
         }
         return result;
     }
 
-//    public List<Integer> minProductArray(int[] numbers, int target){
-//        int left=0;
-//        int sum=1;
-//        List<Integer> numbersList=Arrays.stream(numbers).boxed().collect(Collectors.toList());
-//        List<Integer> result=Lists.newArrayList();
-//        int minLength=Integer.MAX_VALUE;
-//        for(int right=0;right<numbers.length;right++){
-//            sum*=numbers[right];
-//            while(left<right && sum>=target){
-//                minLength=Math.min(right-left+1);
-//
-//            }
-//        }
-//    }
+    public List<Integer> minProductArray(int[] numbers, int target){
+        int left=0;
+        int sum=1;
+        List<Integer> numbersList=Arrays.stream(numbers).boxed().collect(Collectors.toList());
+        List<Integer> result=Lists.newArrayList();
+        int minLength=Integer.MAX_VALUE;
+        for(int right=0;right<numbers.length;right++){
+            sum*=numbers[right];
+            while(left<right && sum>=target){
+                if(minLength>right-left+1) {
+                    minLength = Math.min(right - left + 1, minLength);
+                    result = numbersList.subList(left, right + 1);
+                }
+                sum /= numbers[left++];
+            }
+        }
+        return result;
+    }
+
+    /**
+     * 连续为k的子数组和
+     *
+     * [1,1,1,5] k=2
+     *
+     * return 2
+     *
+     *
+     * sumToCount:
+     * 1, 1
+     * 2, 1
+     * 3, 1
+     * 8, 1
+     *
+     *
+     * @param nums
+     * @param k
+     * @return
+     */
+    public int subarraySum(int [] nums, int k){
+        Map<Integer,Integer> sumToCount=new HashMap<>();
+        sumToCount.put(0,1);
+
+        int sum=0;
+        int count=0;
+        for(int num:nums){
+            sum+=num;
+            count+=sumToCount.getOrDefault(sum-k,0);
+            sumToCount.put(sum,sumToCount.getOrDefault(sum,0)+1);
+        }
+
+        return count;
+    }
+
+    public int findMaxCoiledLength(int[] nums){
+        Map<Integer,Integer> sumToIndex= Maps.newHashMap();
+        sumToIndex.put(0,-1);
+        int sum=0,maxLength=0;
+        for(int i=0;i<nums.length;i++){
+            sum+=nums[i]==0?1:-1;
+            if(sumToIndex.containsKey(sum)){
+                maxLength=Math.max(maxLength,i-sumToIndex.get(sum));
+            }else{
+                sumToIndex.put(sum,i);
+            }
+        }
+        return maxLength;
+    }
 }

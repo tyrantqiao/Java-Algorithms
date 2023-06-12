@@ -38,6 +38,23 @@ class FindSumNumsTest {
         int[] testInputs = new int[]{5,9,4,3,7,6,1,2};
         List<Integer> result = findSumNums.minSumArray(testInputs, 20);
         System.out.println(result);
-        assertTrue(result.containsAll(Lists.newArrayList(4,3,7,6)));
+        assertTrue(result.containsAll(Lists.newArrayList(5,9,4,3)));
+    }
+
+    @Test
+    void minProductArray() {
+        int[] testInputs = new int[]{5,9,4,3,7,6,1,2};
+        List<Integer> result = findSumNums.minProductArray(testInputs, 180);
+        System.out.println(result);
+        assertTrue(result.containsAll(Lists.newArrayList(5,9,4)));
+    }
+
+
+    @Test
+    void subarraySum() {
+        int[] testInputs = new int[]{1,1,1,2};
+        int result = findSumNums.subarraySum(testInputs, 2);
+        System.out.println(result);
+        assertEquals(3, result);
     }
 }
