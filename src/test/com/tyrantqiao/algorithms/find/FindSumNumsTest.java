@@ -57,4 +57,12 @@ class FindSumNumsTest {
         System.out.println(result);
         assertEquals(3, result);
     }
+
+    @Test
+    void pivotIndex() {
+        int[] testInputs=new int[]{1,3,5,2,2};
+        int result=findSumNums.pivotIndex(testInputs);
+        System.out.println(result);
+        assertEquals(result,2);
+    }
 }
